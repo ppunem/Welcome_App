@@ -6,7 +6,10 @@ class Welcome extends Component {
     const btnText="Subscribe"
     
   changeState = () => {
-     return {btnText==="Subscribe"?<button type="button">Subscribed</button>:<button type="button">Subscribe</button>}
+      this.setState(prevState=>{
+        return {btnText==="Subscribe"?<button type="button">Subscribed</button>:<button type="button">Subscribe</button>}
+      })
+     
   }
 
   render() {
