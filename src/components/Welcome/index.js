@@ -3,7 +3,7 @@ import {Component} from 'react'
 import './index.css'
 
 class Welcome extends Component {
-    const btnText="Subscribe"
+    const state={btnText:"Subscribe"}
     
   changeState = () => {
       this.setState(prevState=>{
