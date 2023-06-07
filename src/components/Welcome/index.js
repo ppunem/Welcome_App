@@ -3,17 +3,22 @@ import {Component} from 'react'
 import './index.css'
 
 class Welcome extends Component {
-    const state={btnText:"Subscribe"}
-    
+  state = {subscribed: true}
+
   changeState = () => {
-      this.setState(prevState=>{
-        return {btnText==="Subscribe"?<button type="button">Subscribed</button>:<button type="button">Subscribe</button>}
-      })
-     
+    const {subscribed} = this.state
+    this.setState(prevState => {
+      if (subscribed === true) {
+        return {subscribed: false}
+        return <button type="button">Subscribe</button>
+      }
+      return {subscribed: true}
+      return <button type="button">Subscribed</button>
+    })
   }
 
   render() {
-    const {isSubscribed} = this.state
+    const {Subscribed} = this.state
     return (
       <div className="bg">
         <h1>Welcome</h1>
