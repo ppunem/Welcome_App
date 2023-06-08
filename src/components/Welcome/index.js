@@ -7,14 +7,32 @@ class Welcome extends Component {
 
   changeState = () => {
     const {subscribed} = this.state
-    this.setState(prevState => {
+
+    this.setState(
       if (subscribed === true) {
-        return {subscribed: false}
-        return <button type="button">Subscribe</button>
+        return ({subscribed: false})
+      }else{
+      return ({subscribed: true})
       }
-      return {subscribed: true}
-      return <button type="button">Subscribed</button>
-    })
+    )
+  }
+
+  renderButton = () => {
+    const {subscribed} = this.state
+
+    if (subscribed === true) {
+      return (
+        <button type="button" onClick={this.changeState}>
+          Subscribed
+        </button>
+      )
+    }
+
+    return (
+      <button type="button" onClick={this.changeState}>
+        Subscribe
+      </button>
+    )
   }
 
   render() {
@@ -23,7 +41,7 @@ class Welcome extends Component {
       <div className="bg">
         <h1>Welcome</h1>
         <p>Thank you! Happy Learning</p>
-        {this.changeState()}
+        {this.renderButton()}
       </div>
     )
   }
